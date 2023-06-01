@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1685623444 source:c:\users\mestr\desktop\lista sequencial ponteiros\lista sequencial ponteiros\lista_sequencial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
+1685626309 c:\users\mestr\desktop\lista sequencial ponteiros\lista sequencial ponteiros\lista_sequencial\lista.h
+
+1685626104 source:c:\users\mestr\desktop\lista sequencial ponteiros\lista sequencial ponteiros\lista_sequencial\lista.c
+	<stdio.h>
+	<stdlib.h>
+	"lista.h"
+
