@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1685649484 source:c:\users\mestr\desktop\estudos programação\estudos c\beecrowd 1040\sequential_list\list.c
+	<stdio.h>
+	<stdlib.h>
+	"list.h"
+
+1685643349 c:\users\mestr\desktop\estudos programação\estudos c\beecrowd 1040\sequential_list\list.h
+
+1685649542 source:c:\users\mestr\desktop\estudos programação\estudos c\beecrowd 1040\sequential_list\main.c
+	<stdio.h>
+	<stdlib.h>
+	"list.h"
+
+1685649634 source:c:\users\mestr\desktop\sequential_list\list.c
+	<stdio.h>
+	<stdlib.h>
+	"list.h"
+
+1685643349 c:\users\mestr\desktop\sequential_list\list.h
+
+1685649542 source:c:\users\mestr\desktop\sequential_list\main.c
+	<stdio.h>
+	<stdlib.h>
+	"list.h"
+
