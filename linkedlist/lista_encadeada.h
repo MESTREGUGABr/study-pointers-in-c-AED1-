@@ -22,6 +22,10 @@ void somador (lista l);
 void tamanho_lista(lista l);
 lista elevar_quadrado(lista l);
 void qtd_primo(lista l);
+lista procurar(lista l, int valor);
+lista remove_valor(lista l, int valor);
+
+
 
 
 

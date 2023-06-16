@@ -186,6 +186,29 @@ void qtd_primo(lista l){
     printf("\n");
 }
 
+lista procurar(lista l, int valor){
+    lista aux = l;
+    int cont = 1;
+
+   while(aux->valor != valor){
+            cont++;
+            aux = aux->proximo;
+
+            if(aux == NULL){
+                printf("Nao");
+                return -1;
+            }
+    }
 
 
+    printf("Posicao na lista: (%d)",cont);
+    printf("\n");
+}
+
+lista remove_valor(lista l, int valor){
+    lista aux = l;
+
+
+    return l;
+}
 

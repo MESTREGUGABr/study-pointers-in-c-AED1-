@@ -1,12 +1,12 @@
 # depslib dependency file v1.0
-1686878344 source:c:\users\mestr\onedrive\햞ea de trabalho\lista\linkedlist\main.c
+1686919797 source:c:\users\mestr\onedrive\햞ea de trabalho\lista\linkedlist\main.c
 	<stdio.h>
 	<stdlib.h>
 	"lista_encadeada.h"
 
-1686878181 c:\users\mestr\onedrive\햞ea de trabalho\lista\linkedlist\lista_encadeada.h
+1686919770 c:\users\mestr\onedrive\햞ea de trabalho\lista\linkedlist\lista_encadeada.h
 
-1686878367 source:c:\users\mestr\onedrive\햞ea de trabalho\lista\linkedlist\lista_encadeada.c
+1686919265 source:c:\users\mestr\onedrive\햞ea de trabalho\lista\linkedlist\lista_encadeada.c
 	<stdio.h>
 	<stdlib.h>
 	"lista_encadeada.h"

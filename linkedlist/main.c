@@ -15,8 +15,9 @@ int main() {
     l1 = inserir_inicio(l1, 2);
 
     exibir_lista(l1);
+    remove_valor(l1,98);
+    exibir_lista(l1);
 
-    qtd_primo(l1);
 
 
     exit(0);
