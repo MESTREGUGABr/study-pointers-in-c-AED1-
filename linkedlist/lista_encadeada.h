@@ -17,6 +17,17 @@ void exibir_lista_r( lista l);
 lista remover_fim (lista l);
 lista remover_inicio(lista l);
 lista inserir_posicao(lista l, int valor, int posicao);
+lista remover_posicao(lista l, int posicao);
+void somador (lista l);
+void tamanho_lista(lista l);
+lista elevar_quadrado(lista l);
+void qtd_primo(lista l);
+
+
+
+
+
+
 
 
 

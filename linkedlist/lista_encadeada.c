@@ -95,5 +95,97 @@ lista inserir_posicao(lista l, int valor, int posicao){
     return l;
 }
 
+lista remover_posicao(lista l, int posicao){
+    struct no *atual = l;
+    struct no *anterior = l;
+
+    if(posicao < 0){
+        printf("Posicao invalida. Tente novamente!\n");
+        return l;
+    } else if(posicao == 1){
+        return remover_inicio(l);
+
+    } else if(l == NULL){
+        printf("A lista ja esta vazia!\n");
+        return NULL;
+    } else {
+
+    while(posicao != 1){
+        anterior = atual;
+        atual = atual->proximo;
+        posicao--;
+    }
+    anterior->proximo = atual->proximo;
+    free(atual);
+    atual = NULL;
+    }
+    return l;
+}
+
+void somador (lista l){
+    lista aux = l;
+    int soma = 0;
+
+    while(aux != NULL){
+            soma+=aux->valor;
+            aux = aux->proximo;
+
+    }
+    printf("Soma de todos os itens da lista: (%d)", soma);
+    printf("\n");
+}
+
+void tamanho_lista(lista l){
+    lista aux = l;
+    int cont = 0;
+
+    while(aux != NULL){
+        cont++;
+        aux = aux->proximo;
+    }
+    printf("O tamanho da lista eh: (%d)", cont);
+    printf("\n");
+}
+
+lista elevar_quadrado(lista l){
+
+    lista aux = l;
+
+    while(aux != NULL){
+            aux->valor = aux->valor * aux->valor;
+            aux = aux->proximo;
+    }
+    return l;
+}
+
+int eh_primo(int numero) {
+    if (numero <= 1) {
+        return 0;
+    }
+
+    for (int i = 2; i * i <= numero; i++) {
+        if (numero % i == 0) {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+void qtd_primo(lista l){
+    lista aux = l;
+    int cont_primo = 0;
+
+    while(aux != NULL){
+        if(eh_primo(aux->valor) == 1){
+            cont_primo++;
+        }
+        aux = aux->proximo;
+    }
+    printf("Quantidade de numeros primos na lista eh: (%d)", cont_primo);
+    printf("\n");
+}
+
+
 
 

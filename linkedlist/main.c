@@ -10,12 +10,13 @@ int main() {
     l1 = inserir_inicio(l1, 98);
     l1 = inserir_inicio(l1, 3);
     l1 = inserir_inicio(l1, 9);
+    l1 = inserir_inicio(l1, 20);
+    l1 = inserir_inicio(l1, 1);
+    l1 = inserir_inicio(l1, 2);
 
     exibir_lista(l1);
 
-    l1 = inserir_posicao(l1, 10, 3);
-
-    exibir_lista(l1);
+    qtd_primo(l1);
 
 
     exit(0);
