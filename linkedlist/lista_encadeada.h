@@ -24,6 +24,8 @@ lista elevar_quadrado(lista l);
 void qtd_primo(lista l);
 lista procurar(lista l, int valor);
 lista remove_valor(lista l, int valor);
+lista inserir_ordem(lista l, int valor);
+
 
 
 

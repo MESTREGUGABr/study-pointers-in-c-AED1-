@@ -15,8 +15,9 @@ int main() {
     l1 = inserir_inicio(l1, 2);
 
     exibir_lista(l1);
-    remove_valor(l1,98);
+    inserir_ordem(l1,5);
     exibir_lista(l1);
+
 
 
 

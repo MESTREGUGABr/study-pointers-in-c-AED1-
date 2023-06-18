@@ -206,9 +206,56 @@ lista procurar(lista l, int valor){
 }
 
 lista remove_valor(lista l, int valor){
-    lista aux = l;
+    lista atual = l;
+    lista anterior = l;
 
+    if(atual == NULL){
+        printf("Lista esta vazia!");
+        printf("\n");
+    }
+
+    while(atual->valor != valor){
+        anterior = atual;
+        atual = atual->proximo;
+    }
+    anterior->proximo = atual->proximo;
+    free(atual);
+    atual == NULL;
 
     return l;
 }
 
+lista inserir_ordem(lista l, int valor){
+
+    lista novo = (lista)malloc(sizeof(no));
+
+    lista atual = l;
+    lista anterior = NULL;;
+
+    novo->valor = valor;
+    novo->proximo = NULL;
+
+    if(l == NULL){
+      l = novo;
+      return l;
+    }
+
+
+
+    while(atual != NULL && atual->valor < valor){
+        anterior = atual;
+        atual = atual->proximo;
+    }
+
+    if(atual != NULL && atual->valor == valor){
+        printf("O numero ja esta na lista!\n");
+        free(novo);
+        return l;
+
+    } else {
+        anterior->proximo = novo;
+        novo->proximo = atual;
+    }
+
+    return l;
+}
