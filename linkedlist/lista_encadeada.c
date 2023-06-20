@@ -11,6 +11,10 @@ lista inserir_inicio(lista l, int valor) {
 
 void exibir_lista(lista l){
     lista aux = l;
+
+    if(aux == NULL){
+        printf("Lista vaiza!\n");
+    }
     while(aux != NULL) {
         printf("[%d]", aux->valor);
         aux = aux->proximo;
@@ -20,11 +24,14 @@ void exibir_lista(lista l){
 
 void exibir_lista_r(lista l){
     if(l == NULL) {
-        printf("\n");
-        return ;
+        printf("Lista vaiza!\n");
+        return;
     }
+
     exibir_lista_r(l->proximo);
     printf("[%d]", l->valor);
+
+
 }
 
 lista inserir_fim(lista l, int valor) {
@@ -43,10 +50,16 @@ lista inserir_fim(lista l, int valor) {
 }
 
 lista remover_inicio(lista l) {
-    if(l==NULL)
-        return NULL;
-    lista aux = l->proximo;
-    free(l);
+
+    lista aux = l;
+
+    if(aux==NULL){
+        printf("Lista ja esta vazia!\n");
+        return 0;
+    } else {
+        aux = l->proximo;
+        free(l);
+    }
     return aux;
 }
 
@@ -67,39 +80,56 @@ lista remover_fim(lista l) {
 }
 
 lista inserir_posicao(lista l, int valor, int posicao){
-
-    if(posicao < 0){
-        return l;
-    }
+    int cont = 0;
 
     lista aux = l;
-    lista novo = (lista) malloc(sizeof(no));
-    novo->valor = valor;
-    novo->proximo = NULL;
 
-    if(posicao == 0){
+    while(aux->proximo != NULL){
+        cont++;
+    }
+
+    printf("%d",cont);
+    return 0;
+    /*
+    if(posicao < 0){
+        printf("A posicao digitada eh invalida. Digite novamente!\n");
+        return 0;
+    }
+
+    lista novo = (lista)malloc(sizeof(no));
+
+    if(posicao > cont){
+        printf("A posicao digitada eh invalida. Digite novamente!\n");
+        return 0;
+    }
+
+    if(posicao == 1){
+        novo->valor = valor;
         novo->proximo = l;
         return novo;
     }
 
-    posicao--;
-
-    while(posicao != 1){
-        aux = aux->proximo;
+    while(posicao <= 0){
         posicao--;
-
+        aux = aux->proximo;
     }
 
-    novo->proximo = aux->proximo;
-    aux->proximo = novo;
+    novo->valor = valor;
+
+    aux = novo;
+
+    aux = aux->proximo;
+
     return l;
+
+    */
 }
 
 lista remover_posicao(lista l, int posicao){
     struct no *atual = l;
     struct no *anterior = l;
 
-    if(posicao < 0){
+    if(posicao > 0){
         printf("Posicao invalida. Tente novamente!\n");
         return l;
     } else if(posicao == 1){
@@ -131,6 +161,10 @@ void somador (lista l){
             aux = aux->proximo;
 
     }
+    if(soma == 0){
+        printf("A lista esta vazia!\n");
+        return 0;
+    }
     printf("Soma de todos os itens da lista: (%d)", soma);
     printf("\n");
 }
@@ -139,10 +173,15 @@ void tamanho_lista(lista l){
     lista aux = l;
     int cont = 0;
 
-    while(aux != NULL){
+    while(aux!= NULL){
         cont++;
         aux = aux->proximo;
     }
+    if(cont == 0){
+        printf("Lista esta vazia!\n");
+        return 0;
+    }
+
     printf("O tamanho da lista eh: (%d)", cont);
     printf("\n");
 }
@@ -190,71 +229,88 @@ lista procurar(lista l, int valor){
     lista aux = l;
     int cont = 1;
 
+    if(aux == NULL){
+        printf("Lista esta vazia!\n");
+        return -1;
+    }
+
    while(aux->valor != valor){
             cont++;
             aux = aux->proximo;
+        if(aux->proximo == NULL){
+        printf("Valor nao esta na lista!\n");
+        return -1;
+        }
 
-            if(aux == NULL){
-                printf("Nao");
-                return -1;
-            }
     }
+
+
 
 
     printf("Posicao na lista: (%d)",cont);
     printf("\n");
 }
 
-lista remove_valor(lista l, int valor){
+lista remove_valor(lista l, int val){
+
+    if(l == NULL){
+        printf("lista vaiza!\n");
+        return 0;
+    }
+
     lista atual = l;
-    lista anterior = l;
+    lista temp = NULL;
+
+    while(atual != NULL && atual->valor != val){
+        temp = atual;
+        atual= atual->proximo;
+    }
 
     if(atual == NULL){
-        printf("Lista esta vazia!");
-        printf("\n");
-    }
+        printf("Numero nao existe na lista!\n");
+        return 0;
 
-    while(atual->valor != valor){
-        anterior = atual;
-        atual = atual->proximo;
     }
-    anterior->proximo = atual->proximo;
+    if(temp == NULL){
+        l = atual->proximo;
+    } else {
+        temp->proximo = atual->proximo;
+    }
     free(atual);
-    atual == NULL;
 
     return l;
 }
 
-lista inserir_ordem(lista l, int valor){
-
+lista inserir_ordem(lista l, int num) {
     lista novo = (lista)malloc(sizeof(no));
 
-    lista atual = l;
-    lista anterior = NULL;;
-
-    novo->valor = valor;
+    novo->valor = num;
     novo->proximo = NULL;
 
-    if(l == NULL){
-      l = novo;
-      return l;
+    if (l == NULL) {
+        l = novo;
+        return l;
     }
 
+    lista atual = l;
+    lista anterior = NULL;
 
-
-    while(atual != NULL && atual->valor < valor){
+    while (atual != NULL && atual->valor < num) {
         anterior = atual;
         atual = atual->proximo;
     }
 
-    if(atual != NULL && atual->valor == valor){
-        printf("O numero ja esta na lista!\n");
+    if (atual != NULL && atual->valor == num) {
+        printf("O número já está na lista\n");
         free(novo);
-        return l;
-
     } else {
-        anterior->proximo = novo;
-        novo->proximo = atual;
+        if (anterior == NULL) {
+            novo->proximo = l;
+            l = novo;
+        } else {
+            anterior->proximo = novo;
+            novo->proximo = atual;
+        }
     }
 
     return l;
