@@ -12,7 +12,7 @@ int main() {
     do {
         printf("1 - Adicionar inicio\n"
                "2 - Adicionar fim\n"
-               "3 - \n"
+               "3 - Inserir Posicao\n"
                "4 - \n"
                "5 - Exibir lista\n"
                "6 - Exibir lista reversa\n"
@@ -57,6 +57,14 @@ int main() {
             scanf("%d", &posi);
             printf("\n");
             l1 = inserir_posicao(l1,vav,posi);
+            printf("\n");
+            break;
+
+        case(4):
+            printf("Digite um valor que sera adicionado na lista:\n");
+            scanf("%d", &vav);
+            printf("\n");
+            l1 = inserir_ordem(l1,vav);
             printf("\n");
             break;
 

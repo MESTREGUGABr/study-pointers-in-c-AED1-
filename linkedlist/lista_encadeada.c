@@ -80,49 +80,41 @@ lista remover_fim(lista l) {
 }
 
 lista inserir_posicao(lista l, int valor, int posicao){
-    int cont = 0;
 
-    lista aux = l;
-
-    while(aux->proximo != NULL){
-        cont++;
-    }
-
-    printf("%d",cont);
-    return 0;
-    /*
     if(posicao < 0){
         printf("A posicao digitada eh invalida. Digite novamente!\n");
         return 0;
     }
 
+    if(l == NULL){
+        printf("Impossivel adicionar em uma posicao maior que (1) pois a lista esta vazia\n");
+    }
+
     lista novo = (lista)malloc(sizeof(no));
-
-    if(posicao > cont){
-        printf("A posicao digitada eh invalida. Digite novamente!\n");
-        return 0;
-    }
-
-    if(posicao == 1){
-        novo->valor = valor;
-        novo->proximo = l;
-        return novo;
-    }
-
-    while(posicao <= 0){
-        posicao--;
-        aux = aux->proximo;
-    }
-
     novo->valor = valor;
 
-    aux = novo;
+    if(posicao == 1){
+        novo->proximo = l;
+        l = novo;
+        return l;
+    }
 
-    aux = aux->proximo;
+    lista atual = l;
+    lista anterior = NULL;
+    int cont = 0;
 
+    while(atual != NULL && cont < posicao){
+        anterior = atual;
+        atual = atual->proximo;
+        cont++;
+    }
+
+    if(cont != posicao){
+        printf("Posicao invalida!\n");
+        free(novo);
+        return 0;
+    }
     return l;
-
-    */
 }
 
 lista remover_posicao(lista l, int posicao){
