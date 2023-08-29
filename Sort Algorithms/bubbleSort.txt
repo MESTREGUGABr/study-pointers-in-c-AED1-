@@ -1,0 +1,29 @@
+Bubble Sort é um algoritimo de odernação, que funciona da seguinte forma: Os elementenso "borbulham" até a sua devida posição. Sendo ordenados do menor para o maior. Exemplo:
+[9] - [8] - [47] - [62] - [76] - [21] - [45] - [19] - [13] - [88] - [2] 
+Ele irá comparar o primeiro elemento, com o segundo:
+9 > 8 ? Sim. Então, eles trocam de posição.
+[8] - [9] - [47] - [62] - [76] - [21] - [45] - [19] - [13] - [88] - [2] 
+ Agora ele irá comparar o segundo elemento com o terceiro elemento.
+9 > 47 ? Não. Então passa para o próximo.
+E assim segue até o fim da lista.
+[8] - [9] - [47] - [62] - [21] - [45] - [19] - [13] - [76] - [2] - [88]
+Então, ao chegar ao fim da lista, ele diminui a contagem da lista em 1, e faz o processo novamente até ordenar todos os itens da lista. 
+
+Caso a variável de verificação seja = 0 ao fim da lista, então a lista está ordenada. 
+
+---------------------------------------------------------------------------------------------------------------
+
+#include <stdio.h>
+
+void bubbleSort(int array[], int tamanho){
+    for(int i = 0; i < tamanho - 1; i++){
+        for(int j = 0; j < tamanho - i - 1; j++){
+            if(array[j] > array[j+1]){
+                int temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
+    }
+}
+

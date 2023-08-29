@@ -1,0 +1,39 @@
+O selection sort é um algoritimo de ordenação que funciona da seguinte maneira:
+Ele inicia a lista, considerando o primeiro item da lista como o menor indice da lista.
+[9] - [8] - [47] - [62] - [76] - [21] - [45] - [19] - [13] - [88] - [2] 
+Menor Índice = 9
+Então, ele compara com o próximo. 
+9 > 8 ? Sim, então o menor índice passa a ser 8.
+[9] - [8] - [47] - [62] - [76] - [21] - [45] - [19] - [13] - [88] - [2] 
+Menor índice = 8
+E continua o processo até o fim da lista.
+Chegando ao fim, o menor índice da lista é 2.
+
+Então, ele joga o menor índice para o início da lista.
+
+E o processo inicia novamente. 
+
+[2] - [9] - [8] - [47] - [62] - [76] - [21] - [45] - [19] - [13] - [88] 
+
+Ele desconsidera o primeiro item da lista. E confere novamente, sendo 9 agora o menor item da lista.
+
+Ao terminar a contagem, o 8 será o menor índice. Então, ele jogará todos os elementos da lista para a direita, e adicionará o elemento em sua devida posição.
+ 
+[2] - [8] - [9] - [13] - [19] - [21] - [45] - [47] - [62] - [76] - [88]   
+
+
+---------------------------------------------------------------------------------------------------------------
+
+void selectionSort(array[],int tamanho){
+	for(int i = 0; i < tamanho; i++){
+		int menorIndice = i;
+		for(int j = i + 1; i < tamanho; j++){
+		if(array[j] > menorIndice){
+			menorIndice = j;
+		}
+	}	 
+		int temp = array[i];
+		array[i] = array[menorIndice];
+		array[menorIndice] = temp;
+	}
+}
